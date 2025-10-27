@@ -1,0 +1,127 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Monoli Docs",
+  "colors": {
+    "primary": "#010110",
+    "light": "#b299e6",
+    "dark": "#855cd6"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Get Started",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "get-started/overview",
+              "get-started/quickstart"
+            ]
+          },
+          {
+            "group": "Pricing & Resources",
+            "expanded": false,
+            "pages": [
+              {
+                "group": "Pricing",
+                "pages": [
+                  "pricing/pricing-plan",
+                  "pricing/compute-units"
+                ]
+              }
+            ]
+          },
+          {
+            "group":"Tutorials",
+            "expanded": false,
+            "pages": [
+              {
+                "group": "DeFi",
+                "pages": [
+                  "tutorials/defi/build-a-defi-dashboard",
+                  "tutorials/defi/create-a-yield-farming-strategy"
+                ]
+              },
+              {
+                "group": "Wallet",
+                "pages": [
+                  "tutorials/wallet/develop-a-crypto-wallet",
+                  "tutorials/wallet/integrate-multi-currency-support"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "DeFi Services",
+        "groups": [
+
+        ]
+      },
+      {
+        "tab": "PayFi Services",
+        "groups": [
+
+        ]
+      },
+      {
+        "tab": "Wallets",
+        "groups": [
+          
+        ]
+      },
+      {
+        "tab": "Nodes & Data",
+        "groups": [
+          
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/monoli-docs-light.svg",
+    "dark": "/logo/monoli-docs-dark.svg"
+  },
+  "navbar": {
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.monoli.xyz"
+    }
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  }
+}

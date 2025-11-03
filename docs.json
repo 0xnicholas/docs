@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Monoli Docs",
+  "name": "Monoli Platform Docs",
   "colors": {
     "primary": "#010110",
     "light": "#b299e6",
@@ -38,17 +38,9 @@
             "expanded": false,
             "pages": [
               {
-                "group": "DeFi",
+                "group": "Trading",
                 "pages": [
-                  "tutorials/defi/build-a-defi-dashboard",
-                  "tutorials/defi/create-a-yield-farming-strategy"
-                ]
-              },
-              {
-                "group": "Wallet",
-                "pages": [
-                  "tutorials/wallet/develop-a-crypto-wallet",
-                  "tutorials/wallet/integrate-multi-currency-support"
+                  "tutorials/trading"
                 ]
               }
             ]
@@ -56,54 +48,259 @@
         ]
       },
       {
+        "tab": "Unified Trading",
+        "groups": [
+          {
+            "group": "Introduction",
+            "expanded": true,
+            "pages": [
+              "trading/overview"
+            ]
+          },
+          {
+            "group": "Unified Account",
+            "expanded": false,
+            "pages": [
+              "trading/account/overview",
+              {
+                "group": "Unified Account API",
+                "expanded": false,
+                "pages": [
+                  "trading/account/add-exchange-account",
+                  "trading/account/get-account-info",
+                  "trading/account/edit-account-info"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Trading Terminal",
+            "expanded": false,
+            "pages": [
+              "trading/terminal/overview",
+              {
+                "group": "Terminal APIs",
+                "expanded": false,
+                "pages": [
+                  "trading/terminal/create-trade",
+                  "trading/terminal/get-trade",
+                  "trading/terminal/get-active-trade"
+                ]
+              },
+              "trading/termainal/terminal-api-tutorials"
+            ]
+          },
+          {
+            "group": "Quick Trade",
+            "expanded": false,
+            "pages": [
+              "trading/quick-trade/overview",
+              {
+                "group": "Quick Trade API",
+                "expanded": false,
+                "pages": [
+                  "trading/quick-trade/create-quick-trade",
+                  "trading/quick-trade/get-quick-trade",
+                  "trading/quick-trade/get-active-trade",
+                  "trading/quick-trade/trades-history",
+                  "tranding/quick-trade/cancel-trade"
+                ]
+              },
+              {
+                "group": "Trading Router",
+                "expanded": false,
+                "pages": [
+                  "trading/quick-trade/trade-router"
+                ]
+              },
+              "trading/quick-trade/tutorials"
+            ]
+          },
+          {
+            "group": "Connectors",
+            "pages": [
+              "trading/connectors/overview"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "DeFi Services",
         "groups": [
-
+          {
+            "group": "Introduction",
+            "expanded": true,
+            "pages": [
+              "defi-services/overview"
+            ]
+          },
+          {
+            "group": "DEX Infrasturcture",
+            "expanded": false,
+            "pages": [
+              "defi-services/dex/overview",
+              {
+                "group": "Exchange API Endpints",
+                "expanded": false,
+                "pages": [
+                  "defi-services/dex/exchange/place-order",
+                  "defi-services/dex/exchange/cancel-order",
+                  "defi-services/dex/exchange/modify-order",
+                  "defi-services/dex/exchange/update-leverage",
+                  "defi-services/dex/exchange/update-leverage",
+                  "defi-services/dex/exchange/update-margin",
+                  "defi-services/dex/exchange/deposit",
+                  "defi-services/dex/exchange/withdraw"
+                ]
+              },
+              {
+                "group": "Exchange Data Endpints",
+                "expanded": false,
+                "pages": [
+                  "defi-service/dex/exchange/data-overview"
+                ]
+              },
+              "trading/defi-services/dex-tutorials"
+            ]
+          },
+          {
+            "group": "Vault",
+            "expanded": false,
+            "pages": [
+              {
+                "group": "Vault API Endpints",
+                "expanded": false,
+                "pages": [
+                  "dex/services/vault/depoist",
+                  "dex/services/vault/withdraw"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "DeFi Combo",
+            "expanded": false,
+            "pages": [
+              "defi-services/defi/combo/overview"
+            ]
+          },
+          {
+            "group": "DeFi Primitives",
+            "expanded": false,
+            "pages": [
+              "default"
+            ]
+          },
+          {
+            "group": "Monoli Bridge",
+            "expanded": false,
+            "pages": [
+              {
+                "group": "Bridge API",
+                "expanded": false,
+                "pages": [
+                  "trading/bridge_api"
+                ]
+              }
+            ]
+          }
         ]
       },
       {
         "tab": "PayFi Services",
         "groups": [
-
-        ]
-      },
-      {
-        "tab": "Wallets",
-        "groups": [
-          
-        ]
-      },
-      {
-        "tab": "Nodes & Data",
-        "groups": [
-          
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
           {
-            "group": "API documentation",
+            "group": "Introduction",
+            "expanded": true,
             "pages": [
-              "api-reference/introduction"
+              "payfi-services/intro"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Payment",
+            "expanded": false,
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              {
+                "group": "Payment API Endpints",
+                "expanded": false,
+                "pages": [
+                  "payfi-services/payment/"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "On/Off Ramp Solutions",
+            "expanded": false,
+            "pages": [
+              "/"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Bots",
+        "groups": [
+          {
+            "group": "Introduction",
+            "expanded": false,
+            "pages": [
+              "bots/overview"
+            ]
+          },
+          {
+            "group": "Singal Bot",
+            "expanded": false,
+            "pages": [
+              "bots/signal-bot"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Crypto Passport",
+        "groups": [
+          {
+            "group": "Introduction",
+            "expanded": false,
+            "pages": [
+              "passport/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developer tools",
+        "icon": "square-terminal",
+        "menu": [
+          {
+            "item": "API reference",
+            "icon": "rocket",
+            "groups": [
+              {
+                "group": "Core endpoints",
+                "icon": "square-terminal",
+                "pages": [
+                  "api-reference/get",
+                  "api-reference/post",
+                  "api-reference/delete"
+                ]
+              }
+            ]
+          },
+          {
+            "item": "SDKs",
+            "icon": "code",
+            "description": "SDKs are used to interact with the API.",
+            "pages": [
+              "sdk/fetch",
+              "sdk/create",
+              "sdk/delete"
             ]
           }
         ]
       }
     ]
-  },
-  "logo": {
-    "light": "/logo/monoli-docs-light.svg",
-    "dark": "/logo/monoli-docs-dark.svg"
   },
   "navbar": {
     "primary": {

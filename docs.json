@@ -181,28 +181,21 @@
             "group": "Pools",
             "expanded": false,
             "pages": [
-              "defi-services/defi/combo/overview"
+              "defi-services/defi/pools/overview"
             ]
           },
           {
-            "group": "Vault",
+            "group": "Vaults",
             "expanded": false,
             "pages": [
               {
-                "group": "Vault API Endpints",
+                "group": "Vaults API Endpints",
                 "expanded": false,
                 "pages": [
                   "dex/services/vault/depoist",
                   "dex/services/vault/withdraw"
                 ]
               }
-            ]
-          },
-          {
-            "group": "DeFi Primitives",
-            "expanded": false,
-            "pages": [
-              "default"
             ]
           },
           {
@@ -241,13 +234,6 @@
                   "payfi-services/payment/"
                 ]
               }
-            ]
-          },
-          {
-            "group": "On/Off Ramp Solutions",
-            "expanded": false,
-            "pages": [
-              "/"
             ]
           }
         ]

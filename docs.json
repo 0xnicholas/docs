@@ -140,6 +140,20 @@
             "pages": [
               "defi-services/dex/overview",
               {
+                "group": "Orderbook Engine",
+                "expanded": false,
+                "pages": [
+                  "defi-services/dex/orderbook/overview"
+                ]
+              },
+              {
+                "group": "AMM Protocol",
+                "expanded": false,
+                "pages": [
+                  "defi-services/dex/amm/overview"
+                ]
+              },
+              {
                 "group": "Exchange API Endpints",
                 "expanded": false,
                 "pages": [
@@ -164,6 +178,13 @@
             ]
           },
           {
+            "group": "Pools",
+            "expanded": false,
+            "pages": [
+              "defi-services/defi/combo/overview"
+            ]
+          },
+          {
             "group": "Vault",
             "expanded": false,
             "pages": [
@@ -175,13 +196,6 @@
                   "dex/services/vault/withdraw"
                 ]
               }
-            ]
-          },
-          {
-            "group": "DeFi Combo",
-            "expanded": false,
-            "pages": [
-              "defi-services/defi/combo/overview"
             ]
           },
           {
@@ -281,11 +295,16 @@
                 "group": "Core endpoints",
                 "icon": "square-terminal",
                 "pages": [
-                  "api-reference/get",
-                  "api-reference/post",
-                  "api-reference/delete"
+                  "api-reference/search"
                 ]
               }
+            ]
+          },
+          {
+            "item": "Contracts Libraries",
+            "icon": "code",
+            "pages": [
+              "contracts/overview"
             ]
           },
           {
@@ -293,9 +312,7 @@
             "icon": "code",
             "description": "SDKs are used to interact with the API.",
             "pages": [
-              "sdk/fetch",
-              "sdk/create",
-              "sdk/delete"
+              "sdk/overview"
             ]
           }
         ]

@@ -1,0 +1,254 @@
+openapi: 3.1.0
+info:
+  title: Smart Trade Router API
+  version: 1.0.0
+  description: |
+    Intelligent routing engine for unified accounts. Automatically selects the best exchange sub-account
+    based on liquidity, fees, slippage, risk limits, latency, and user-defined rules.
+  contact:
+    name: API Support
+    email: dev@yourplatform.com
+
+servers:
+  - url: https://api.yourplatform.com/v1
+    description: Production
+  - url: https://api-sandbox.yourplatform.com/v1
+    description: Sandbox
+
+paths:
+  /router/execute:
+    post:
+      summary: Smart Execute Trade
+      description: Submit a trade intent — router decides best venue & account
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmartTradeRequest'
+      responses:
+        '200':
+          description: Trade successfully routed and executed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartTradeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '503':
+          description: All routes temporarily unavailable
+
+  /router/quote:
+    post:
+      summary: Get Best Quote (Dry Run)
+      description: Simulate routing without executing — returns best venue + estimated slippage/fees
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmartTradeRequest'
+      responses:
+        '200':
+          description: Best quote across all eligible routes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartQuoteResponse'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    SmartTradeRequest:
+      type: object
+      required:
+        - symbol
+        - side
+        - type
+        - quantity
+        - unified_account_id
+      properties:
+        unified_account_id:
+          type: integer
+          description: Target unified account (router will pick best sub-account inside it)
+          example: 3
+        symbol:
+          type: string
+          example: "BTCUSDT"
+        side:
+          type: string
+          enum: [buy, sell]
+        type:
+          type: string
+          enum: [market, limit, stop_limit, post_only, reduce_only]
+          default: market
+        quantity:
+          type: number
+          format: decimal
+          description: Quantity in base asset
+          example: 0.05
+        quote_quantity:
+          type: number
+          format: decimal
+          description: Alternative — specify USDT amount (for quote-order)
+        price:
+          type: number
+          format: decimal
+          description: Required for limit/stop_limit
+        stop_price:
+          type: number
+          format: decimal
+        time_in_force:
+          type: string
+          enum: [GTC, IOC, FOK, GTX]
+          default: GTC
+        routing_rules:
+          $ref: '#/components/schemas/RoutingRules'
+        client_order_id:
+          type: string
+          maxLength: 64
+        tag:
+          type: string
+          description: User-defined label (copytrade source, strategy name, etc.)
+
+    RoutingRules:
+      type: object
+      properties:
+        priority:
+          type: string
+          enum: [lowest_fee, best_price, fastest, lowest_slippage, risk_aware]
+          default: best_price
+        max_slippage_bps:
+          type: integer
+          minimum: 1
+          maximum: 500
+          description: Max acceptable slippage in basis points (0.01%)
+          example: 30
+        allowed_exchanges:
+          type: array
+          items:
+            type: string
+          example: ["binance", "bybit"]
+        excluded_exchanges:
+          type: array
+          items:
+            type: string
+        require_liquidity_depth:
+          type: integer
+          description: Minimum orderbook depth in USD within ±0.1%
+          example: 100000
+        risk_check:
+          type: boolean
+          default: true
+          description: Block if unified account margin ratio would drop below threshold
+
+    SmartTradeResponse:
+      type: object
+      properties:
+        request_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [filled, partially_filled, rejected, routing_failed, pending]
+        routed_to:
+          $ref: '#/components/schemas/RoutedVenue'
+        order_id:
+          type: string
+          description: Exchange-native order ID
+        executed_qty:
+          type: number
+          format: decimal
+        executed_price:
+          type: number
+          format: decimal
+        fee:
+          type: number
+          format: decimal
+        fee_asset:
+          type: string
+        slippage_bps:
+          type: number
+        timestamp:
+          type: string
+          format: date-time
+
+    SmartQuoteResponse:
+      type: object
+      properties:
+        best_route:
+          $ref: '#/components/schemas/RoutedVenue'
+        estimated_price:
+          type: number
+          format: decimal
+        estimated_slippage_bps:
+          type: integer
+        estimated_fee_usd:
+          type: number
+          format: decimal
+        alternatives:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlternativeRoute'
+        expires_at:
+          type: string
+          format: date-time
+
+    RoutedVenue:
+      type: object
+      properties:
+        unified_account_id:
+          type: integer
+        exchange_account_id:
+          type: integer
+        exchange:
+          type: string
+          example: "bybit"
+        market_type:
+          type: string
+          enum: [spot, linear_perp, inverse_perp, delivery]
+        reason:
+          type: string
+          description: Why this venue was chosen
+          example: "lowest effective fee (0.012%) + best price (-12 bps slippage)"
+
+    AlternativeRoute:
+      allOf:
+        - $ref: '#/components/schemas/RoutedVenue'
+        - type: object
+          properties:
+            rank:
+              type: integer
+            delta_bps:
+              type: integer
+              description: How many bps worse than best route
+
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              details:
+                type: object
+    RateLimit:
+      description: Too many requests
+      headers:
+        Retry-After:
+          schema:
+            type: integer

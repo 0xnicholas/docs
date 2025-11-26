@@ -1,126 +1,128 @@
 ---
-title: 'Monoli Platform Overview'
+title: 'Get Started'
 description: "No Blockchain, Any Application."
+mode: "wide"
 ---
-Monoli has five main service categories: Unified Trading API, DeFi Services, PayFi Services, Wallets and Market Data API.
+Monoli Platform is a unified CeDeFi capability layer that provides developers with standardized APIs for trading, DeFi, payments, bots, and identity across multiple chains and centralized venues. 
+It abstracts heterogeneous liquidity, protocols, and account systems into a coherent API-led architecture, enabling builders to create advanced trading systems, automated agents, Solver-based applications, 
+and CeDeFi-native user experiences without managing direct integrations, fragmented state, or protocol-specific complexity. 
+Through its modular services—Unified Trading, DeFi Services, PayFi, Bots, and Crypto Passport—Monoli delivers a comprehensive execution, liquidity, 
+and identity fabric designed for high-performance applications in the CeDeFi ecosystem.
+
+Platform has five main service categories: Unified Trading API, DeFi Services, PayFi Services, Bots and Crypto Passport.
 
 <Tip>Don’t have an API key? [Get started for free](https://dashboard.monoli.xyz)</Tip>
 
 ## Unified Trading API
-Unified Tranding API整合了多种交易所(CeFi&DeFi)订单类型和资产类别，提供单一聚合接口进行交易和数据访问。
-- User cases:
-- Exchange suported: Binance, Bybit, OKX, Hyperliquid, Aster, Lambo, Uniswap, Pancakeswap, etc.
+The Unified Trading API standardizes access to multiple exchanges and order types through a single aggregated interface, streamlining trade execution and unified data access for CeDeFi applications.
 
 <Columns cols={3}>
   <Card
-    title="Trading Terminal"
-    icon="arrow-right"
-    href="/trading/terminal"
+    title="Trading Services"
+    icon="arrow-right-arrow-left"
+    iconType="sharp-solid"
+    href="/trade/trading-services"
   >
-    ""
+  Unified trade execution and market access.
   </Card>
     <Card
     title="Quick Trade"
-    icon="arrow-right"
-    href="/trading/quick-trade"
+    icon="arrow-right-arrow-left"
+    iconType="sharp-solid"
+    href="/trade/quick-trade"
   >
-    ""
+    Provides fast, single-call routed execution across venues.
   </Card>
   <Card
     title="Connector"
-    icon="arrow-right"
-    href="/trading/connector"
+    icon="arrow-right-to-arc"
+    href="/trade/connector"
   >
-    ""
+    Exchange connectivity interface.
   </Card>
 </Columns>
 
 ## DeFi Services
 DeFi Services
-- User cases:
-- Services supported: 
 
 <Columns cols={3}>
   <Card
     title="DEX Services"
-    icon="arrow-right"
+    icon="landmark"
     href="/defi-services/dex"
   >
-    ""
+    Trade, swap, and access liquidity across decentralized exchanges.
   </Card>
   <Card
     title="Pools"
-    icon="arrow-right"
+    icon="box-dollar"
     href="/defi-service/pools"
   >
-    ""
+    Manage and interact with lending, staking, and structured pools via unified API.
   </Card>
   <Card
     title="Vaults"
-    icon="arrow-right"
+    icon="box-dollar"
     href="/defi-service/vaults"
   >
-    ""
+    Deposit, redeem, and manage strategy vaults via unified API.
   </Card>
   <Card
     title="Monoli Bridge"
-    icon="arrow-right"
+    icon="almost-equal-to"
     href="/defi-service/bridge"
   >
-    ""
+    Securely transfer assets across chains with unified API access using Monoli Bridge.
   </Card>
 </Columns>
 
 ## PayFi Services
 PayFi Services
-- User cases:
-- Services supported:
 
 <Columns cols={3}>
     <Card
     title="Payment Gateway API"
-    icon="arrow-right"
+    icon="money-check-dollar"
     href="/payfi-services/payment-gateway"
   >
-    ""
-  </Card>
-  <Card
-    title="Micropayment API"
-    icon="arrow-right"
-    href="/payfi-services/payment-gateway"
-  >
-    ""
-  </Card>
-   <Card
-    title="On/Off Ramp Solutions"
-    icon="arrow-right"
-    href="/payfi-services/payment-gateway"
-  >
-    ""
+    Enable fiat and crypto payments, settlements, and invoicing via a unified Payment Gateway API.
   </Card>
 </Columns>
 
 ## Bots
-- User cases:
 
 <Columns cols={3}>
   <Card
-    title="Bots"
-    icon="arrow-right"
-    href="/bots/overview"
+    title="Signal Bot"
+    icon="user-robot"
+    href="/bots/signal/overview"
   >
-    ""
+    Automatically receive and execute trading signals for strategy automation across multiple markets and assets.
+  </Card>
+  <Card
+    title="DCA Bot"
+    icon="user-robot"
+    href="/bots/dca/overview"
+  >
+    Automate dollar-cost averaging strategies by scheduling recurring trades across multiple assets and exchanges.
+  </Card>
+  <Card
+    title="Grid Bot"
+    icon="user-robot"
+    href="/bots/grid/overview"
+  >
+    Automate grid trading strategies by placing buy and sell orders at predefined intervals across markets.
   </Card>
 </Columns>
 
 ## Crypto Passport
-- Services supported:
+
 <Columns cols={3}>
   <Card
     title="Crypto Passport"
-    icon="arrow-right"
+    icon="passport"
     href="/passport/overview"
   >
-    ""
+    Unified account system enabling secure identity, authorization, and management of assets across CeFi and DeFi platforms.
   </Card>
 </Columns>

@@ -1,0 +1,55 @@
+---
+title: "Pools Overview"
+description: ""
+---
+Pools Open API provides a unified interface for interacting with capital coordination primitives across Money Markets (Lending), Staking Pools, Structured Pools, and Gauge-based Incentive Pools. Developers can programmatically deposit or withdraw assets, manage staking or incentive positions, compose structured yield or risk exposures, and integrate external liquidity or reward logic. 
+
+The API abstracts heterogeneous pool mechanics into standardized endpoints, enabling seamless interoperability, automated strategies, and modular DeFi application design.
+
+## Core Concepts
+
+### Pools
+A Pool is a logical grouping of related on-chain assets and their associated operational context. It represents all tokens managed by a specific mechanism—such as an AMM pair, a lending market, a vault, or a staking module—along with metadata like liquidity, rates, configuration parameters, and relevant contract addresses. Pools serve as the primary organizational unit for understanding how wrapped assets are generated, priced, and utilized within a protocol.
+
+#### Benefits of the Pools API
+- Simplified Data Access:
+Access DeFi pool data without needing to understand the unique smart contract logic of each protocol.
+
+- Standardized Data Structures:
+Unified representation of assets, liquidity, rates, and metadata across diverse protocols, enabling seamless integration.
+
+- Composable and Interoperable:
+Treat pools from different protocols consistently, supporting cross-pool routing, analysis, and composable strategies.
+
+
+### Wrapper Tokens
+Wrapper tokens are standardized ERC-20 assets that represent a redeemable claim on one or more underlying tokens. They unify LP shares, yield-bearing vault tokens, staked derivatives, and basketized assets under a single model: an ERC-20 interface externally, with a structured mapping to underlying components internally. This abstraction enables consistent valuation, routing, and composability across protocols, allowing developers to treat any wrapped asset as a transparent, decomposable representation of its underlying value.
+
+`wrapped({ asset1, asset2, ..., assetN })`
+for example,
+- LP token = wrapped( tokenA + tokenB )
+- Vault share = wrapped( underlying assets + accrued yield )
+- Tri-pool LP = wrapped( USDT + USDC + DAI )
+
+### Zaps
+Zaps are smart contract interactions that bundle multiple on-chain steps—such as swaps, deposits, staking, or wrapping—into a single user-facing operation. They allow users to enter or exit complex DeFi positions using just one token, abstracting away the underlying multi-asset flows and protocol-specific logic. Zaps make it seamless to access opportunities across liquidity pools, yield-generating vaults, liquid staking derivatives (LSDs), and real-world asset markets
+
+#### Use Cases
+**Single-Asset to Lending Market Collateral (Aave)**
+A user wants to supply collateral into Aave but only holds USDC while the protocol requires aTokens.
+A zap automatically:
+1. Supplies USDC to Aave
+2. Receives aUSDC on behalf of the user
+3. Returns aUSDC as the final wrapped position
+The user performs only one action, while the zap handles all deposit logic under the hood.
+
+**ETH to Yearn Vault Position** A user wants to deposit into a Yearn yvDAI vault but only holds ETH.
+A zap automatically:
+1. Swaps ETH → DAI through the optimal route
+2. Deposits DAI into the Yearn vault
+3. Sends the user yvDAI vault shares
+
+## Supported Protocol Pools
+
+
+## Supported Networks

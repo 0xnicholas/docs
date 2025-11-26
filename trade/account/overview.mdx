@@ -1,0 +1,63 @@
+---
+title: "Unified Account"
+---
+
+<Tip>The Unified Account currently supports CEX only.</Tip>
+
+# Account Entity
+The account entity contains information about the cryptocurrency portfolio, its balance, trading volume, and the set of tools available for this account.
+
+The account entity includes the following information:
+- Detailed information about connected exchanges, including their type, name and current status.
+- Profit and currency infomation, susch as account balance, daily and total profits.
+- Avaiable trading functions for this account. 
+
+## Core Attributes
+| Field | Type | Description | 
+| :- | :- | :- |
+| `id`| integer | Unified account ID.|
+| `user_id` | integer| Owner user ID. |
+| `name` | string | Display name of the unified account.|
+| `currency` | string | Primary display currency. e.g., USD/USDC/BTC|
+| `status` | string | Account status |
+| `total_balance` | number | total assets in primary currency |
+| `total_balance_btc` | number | total assets valued in BTC |
+| `total_pnl` | number | Cumulative realized + unrealized PnL(primary currency) |
+| `total_pnl_percentage`|
+| `total_pnl_btc`|
+| `day_pnl`|
+| `day_pnl_percentage`|
+| `day_pnl_btc` |
+| `total_margin_balance` |
+| `total_unrealized_pnl` |
+| `total_margin_ratio` |
+| `estimated_liquidation_price` |
+| `risk_mode` | 
+| `max_drawdown_limit` | number | Max allowed drawdown(triggers auto-pause of breached)
+| `include_in_global_stats` | boolean | Whether tahis unified account is counted in global/user-wide statistics|
+| `created_at` |
+| `updated_at` |
+
+## unified_account_exchange_mappings
+| Field | Type | Description | 
+| :- | :- | :- |
+| `unified_account_id`|
+| `exchange_account_id` |
+| `alias`|
+| `weight`|
+| `include_in_balance`|
+| `include_in_pnl` |
+| `include_in_risk` |
+| `include_in_drawdown` |
+| `risk_multiplier`|
+| `is_active`|
+| `created_at` |
+| `updated_at` |
+
+The following are four common mapping patterns:
+| Mode | include_in_balance | include_in_pnl | include_in_risk | Typical Use case|
+| :- | :-| :- | :- | :- |
+| Full Inclusion (default)| true | true |true| Main live trading account (spot or futures)|
+| View-Only / Monitor Only| false| false | false| Watching someone else’s account, testnet, paper trading, signal provider account|
+| Balance & PnL Only (Risk Excluded) | true| true|false|Cold storage spot wallet, staking account (cannot be liquidated)|
+| High-Leverage with Risk Amplification|true|true|true|3x–20x futures/margin subaccount → count extra risk for unified liquidation warning|

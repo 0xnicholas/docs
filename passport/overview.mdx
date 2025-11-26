@@ -1,4 +1,35 @@
 ---
 title: "Crypto Passport"
-description: ""
+description: "One Passport, One Portfolio, Any Account, Any Chain."
 ---
+
+## Overview
+Crypto Passport是一个跨域的主权代理账户（Cross-Domain Sovereign Agent Account），负责统一管理、授权并执行用户在 CeFi 与 DeFi 两个世界中的行为。
+它解决的核心问题是，用户在 CeFi 与 DeFi 之间不再是两个割裂的账户体系，而是一个具备统一身份、签名权限与资产视图的逻辑主体。
+- 在CeFi端，映射为[Unified Account](../dex/)
+- 在DeFi，映射为AA/On-chain identity
+- 在passport层，形成统一的meta-account abstraction
+
+Crypto Passport是一个有身份、有上下文、有权限边界的行为代理账户（Behavioral Agent Account），可以主动或被动地在多个信任域执行操作。
+
+
+例如：
+- CeFi 端（如 Binance, OKX, Cobo Custody）账户 API 通过签名授权纳入 Crypto Passport；
+- DeFi 端账户（EVM、Solana、Monoli）通过 AA 注册；
+- Crypto Passport 维护「统一授权表」，实现 单点签名（one signature, multi-domain control）。
+
+### Key Features
+
+---
+
+## How it works
+
+
+### Architecture
+
+`Passport (Agent Account) := <ID, Auth, Policy, Executor, State>`
+
+
+[Identity]
+[Delegation & Authorization Layer]
+[State & Execution Layer]

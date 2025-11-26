@@ -1,0 +1,66 @@
+---
+title: "Quick Trade"
+description: "Fast execution via smart routing across CeFi and DeFi."
+---
+The Quick Trade API allows users to create, manage, and close orders on supported exchange based on predefined conditions.
+
+```JSON
+{
+  "trade": {
+    "uuid": "1",
+    "account_id": 1,
+    "pair": "BTC_ETH",
+    "created_at": 1727871936,
+    "closed_at": 1727871937,
+    "order": {
+      "type": "market",
+      "side": "buy",
+      "strategy": null,
+      "position_side": "both",
+      "reduce_only": false
+    },
+    "units": {
+      "value": "2.4869"
+    },
+    "price": {
+      "value": null
+    },
+    "total": {
+      "value": "0.099898773"
+    },
+    "conditional": {
+      "enabled": false,
+      "value": null,
+      "price": {
+        "value": null,
+        "type": null
+      }
+    },
+    "trailing": {
+      "enabled": false,
+      "value": null,
+      "percent": null
+    },
+    "timeout": {
+      "enabled": false,
+      "value": null
+    },
+    "leverage": {
+      "type": null
+    },
+    "status": {
+      "value": "finished",
+      "error": null
+    },
+    "filled": {
+      "units": "2.4869",
+      "total": "0.099998671773",
+      "price": "0.04021",
+      "value": "100.0"
+    },
+    "data": {
+      "cancelable": false
+    }
+  }
+}
+```

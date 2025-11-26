@@ -3,11 +3,14 @@
   "theme": "mint",
   "name": "Monoli Platform Docs",
   "colors": {
-    "primary": "#010110",
+    "primary": "#917ac4",
     "light": "#b299e6",
     "dark": "#855cd6"
   },
   "favicon": "/favicon.svg",
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
   "navigation": {
     "tabs": [
       {
@@ -17,7 +20,8 @@
             "group": "Introduction",
             "pages": [
               "get-started/overview",
-              "get-started/quickstart"
+              "get-started/quickstart",
+              "get-started/usage-scenarios"
             ]
           },
           {
@@ -27,8 +31,8 @@
               {
                 "group": "Pricing",
                 "pages": [
-                  "pricing/pricing-plan",
-                  "pricing/compute-units"
+                  "pricing/plans",
+                  "pricing/api-credits"
                 ]
               }
             ]
@@ -37,89 +41,104 @@
             "group":"Tutorials",
             "expanded": false,
             "pages": [
-              {
-                "group": "Trading",
-                "pages": [
-                  "tutorials/trading"
-                ]
-              }
+              "Best Practices"
+            ]
+          },
+          {
+            "group": "Resources",
+            "expanded": false,
+            "pages": [
+              "resources/vision-paper",
+              "resources/whitepaper",
+              "resources/changelog"
             ]
           }
-        ]
+        ],
+        "global": {
+          "anchors": [
+            {
+              "anchor": "Monoli",
+              "href": "https://monoli.xyz/"
+            }
+          ]
+        }
       },
       {
-        "tab": "Unified Trading",
+        "tab": "Unified Trade",
         "groups": [
           {
             "group": "Introduction",
             "expanded": true,
             "pages": [
-              "trading/overview"
+              "trade/overview"
             ]
           },
           {
             "group": "Unified Account",
             "expanded": false,
             "pages": [
-              "trading/account/overview",
+              "trade/account/overview",
               {
                 "group": "Unified Account API",
                 "expanded": false,
                 "pages": [
-                  "trading/account/add-exchange-account",
-                  "trading/account/get-account-info",
-                  "trading/account/edit-account-info"
+                  "trade/account/add-exchange-account",
+                  "trade/account/get-account-info",
+                  "trade/account/edit-account-info"
                 ]
               }
             ]
           },
           {
-            "group": "Trading Terminal",
+            "group": "Trading Services",
             "expanded": false,
             "pages": [
-              "trading/terminal/overview",
+              "trade/trading-services/overview",
               {
-                "group": "Terminal APIs",
+                "group": "Trading APIs",
                 "expanded": false,
                 "pages": [
-                  "trading/terminal/create-trade",
-                  "trading/terminal/get-trade",
-                  "trading/terminal/get-active-trade"
+                  "trade/trading-services/create-trade",
+                  "trade/trading-services/get-trade",
+                  "trade/trading-services/get-active-trade"
                 ]
               },
-              "trading/termainal/terminal-api-tutorials"
+              "trade/trading-services/trade-api-tutorials"
             ]
           },
           {
             "group": "Quick Trade",
             "expanded": false,
             "pages": [
-              "trading/quick-trade/overview",
+              "trade/quick-trade/overview",
               {
                 "group": "Quick Trade API",
                 "expanded": false,
                 "pages": [
-                  "trading/quick-trade/create-quick-trade",
-                  "trading/quick-trade/get-quick-trade",
-                  "trading/quick-trade/get-active-trade",
-                  "trading/quick-trade/trades-history",
-                  "tranding/quick-trade/cancel-trade"
+                  "trade/quick-trade/overview",
+                  "trade/quick-trade/create-trade",
+                  "trade/quick-trade/get-trade",
+                  "trade/quick-trade/get-active-trades",
+                  "trade/quick-trade/trades-history",
+                  "trade/quick-trade/cancel-trade"
                 ]
               },
               {
-                "group": "Trading Router",
+                "group": "Trade Router",
                 "expanded": false,
                 "pages": [
-                  "trading/quick-trade/trade-router"
+                  "trade/router/overview",
+                  "trade/router/execute",
+                  "trade/router/quote"
                 ]
               },
-              "trading/quick-trade/tutorials"
+              "trade/quick-trade/tutorials"
             ]
           },
           {
             "group": "Connectors",
             "pages": [
-              "trading/connectors/overview"
+              "trade/connectors/overview"
             ]
           }
         ]
@@ -135,65 +154,109 @@
             ]
           },
           {
-            "group": "DEX Infrasturcture",
+            "group": "DEX Infrasturcture(TBD)",
             "expanded": false,
             "pages": [
-              "defi-services/dex/overview",
+              "dex/overview",
               {
                 "group": "Orderbook Engine",
                 "expanded": false,
                 "pages": [
-                  "defi-services/dex/orderbook/overview"
+                  "dex/orderbook/overview"
                 ]
               },
               {
                 "group": "AMM Protocol",
                 "expanded": false,
                 "pages": [
-                  "defi-services/dex/amm/overview"
+                  "dex/amm/overview"
                 ]
               },
               {
                 "group": "Exchange API Endpints",
                 "expanded": false,
                 "pages": [
-                  "defi-services/dex/exchange/place-order",
-                  "defi-services/dex/exchange/cancel-order",
-                  "defi-services/dex/exchange/modify-order",
-                  "defi-services/dex/exchange/update-leverage",
-                  "defi-services/dex/exchange/update-leverage",
-                  "defi-services/dex/exchange/update-margin",
-                  "defi-services/dex/exchange/deposit",
-                  "defi-services/dex/exchange/withdraw"
+                  "dex/exchange/place-order",
+                  "dex/exchange/cancel-order",
+                  "dex/exchange/modify-order",
+                  "dex/exchange/update-leverage",
+                  "dex/exchange/update-leverage",
+                  "dex/exchange/update-margin",
+                  "dex/exchange/deposit",
+                  "dex/exchange/withdraw"
                 ]
               },
               {
                 "group": "Exchange Data Endpints",
                 "expanded": false,
                 "pages": [
-                  "defi-service/dex/exchange/data-overview"
+                  "dex/exchange/data-overview"
                 ]
               },
-              "trading/defi-services/dex-tutorials"
+              "dex/tutorials"
             ]
           },
           {
             "group": "Pools",
             "expanded": false,
             "pages": [
-              "defi-services/defi/pools/overview"
+              "defi-services/pools/overview",
+              "defi-services/pools/quick-start",
+              {
+                "group" : "Token Data",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/token-data/overview"
+                ]
+              },
+              {
+                "group": "Zaps",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/zaps/overview"
+                ]
+              },
+              {
+                "group": "Money Market",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/lending/overview",
+                  "defi-services/pools/lending/supply"
+                ]
+              },
+              {
+                "group": "Staking Pools",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/staking/overview"
+                ]
+              },
+              {
+                "group": "Structured Pools",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/structured"
+                ]
+              },
+              {
+                "group": "Gauges",
+                "expanded": false,
+                "pages": [
+                  "defi-services/pools/gauges/incentive"
+                ]
+              }
             ]
           },
           {
             "group": "Vaults",
             "expanded": false,
             "pages": [
+              "defi-services/vaults/overview",
               {
                 "group": "Vaults API Endpints",
                 "expanded": false,
                 "pages": [
-                  "dex/services/vault/depoist",
-                  "dex/services/vault/withdraw"
+                  "defi-services/vaults/"
                 ]
               }
             ]
@@ -252,7 +315,35 @@
             "group": "Singal Bot",
             "expanded": false,
             "pages": [
-              "bots/signal-bot"
+              "bots/signal/overview"
+            ]
+          },
+          {
+            "group": "DCA Bot",
+            "expanded": false,
+            "pages": [
+              "bots/dca/overview",
+              {
+                "group": "DCA Bot APIs",
+                "expanded": false,
+                "pages": [
+                  "a"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Grid Bot",
+            "expanded": false,
+            "pages": [
+              "bots/grid/overview",
+              {
+                "group": "Grid Bot APIs",
+                "expanded": false,
+                "pages": [
+                  "a"
+                ]
+              }
             ]
           }
         ]
@@ -264,7 +355,11 @@
             "group": "Introduction",
             "expanded": false,
             "pages": [
-              "passport/overview"
+              "passport/overview",
+              "passport/quickstart",
+              "passport/concepts",
+              "passport/Unified Login",
+              "passport/use-cases"
             ]
           }
         ]
@@ -287,7 +382,7 @@
             ]
           },
           {
-            "item": "Contracts Libraries",
+            "item": "Smart Contracts Libraries",
             "icon": "code",
             "pages": [
               "contracts/overview"
@@ -296,7 +391,7 @@
           {
             "item": "SDKs",
             "icon": "code",
-            "description": "SDKs are used to interact with the API.",
+            "description": "",
             "pages": [
               "sdk/overview"
             ]

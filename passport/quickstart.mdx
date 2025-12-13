@@ -2,9 +2,30 @@
 title: "Crypto Passport Quickstart"
 sidebarTitle: "Quickstart"
 ---
+# 快速开始
 
-crypto 登录和身份
+在开始开发前理解核心概念
+[Concepts](/passport/concepts)
 
-CeFi账户统一接入
+## 1. 初始化passport sdk
 
-DeFi AA注册
+```bash
+npm install @monoli/platform-sdk
+```
+
+## 2. 用户登录
+Passport 支持两种典型登录模式：
+1. Web2（Email / OAuth）
+2. Web3（Sign-in with Wallet）
+
+## 3. CeFi交易所账户
+[Unified Account]
+3.1 调用 CeFi 数据（资产、订单、仓位）
+
+3.2 使用 Passport 执行 CeFi 操作（下单、取消单）
+
+## 4. 调用 DeFi（AA）账户操作
+Passport 也支持链上 AA 执行：
+发送链上交易
+
+## 5. 建立统一跨域视图（Portfolio）

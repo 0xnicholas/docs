@@ -1,16 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Monoli Platform Docs",
+  "name": "Monoli Platform",
   "colors": {
     "primary": "#917ac4",
     "light": "#b299e6",
     "dark": "#855cd6"
   },
   "favicon": "/favicon.svg",
-  "styling": {
-    "eyebrows": "breadcrumbs"
-  },
   "navigation": {
     "tabs": [
       {
@@ -20,7 +17,15 @@
             "group": "Introduction",
             "pages": [
               "get-started/overview",
-              "get-started/quickstart",
+              {
+                "group": "Get Started",
+                "pages": [
+                  "get-started/quickstart",
+                  "get-started/create-platform-key",
+                  "get-started/platform-sdk",
+                  "get-started/make-your-first-api-call"
+                ]
+              },
               "get-started/usage-scenarios"
             ]
           },
@@ -48,8 +53,6 @@
             "group": "Resources",
             "expanded": false,
             "pages": [
-              "resources/vision-paper",
-              "resources/whitepaper",
               "resources/changelog"
             ]
           }
@@ -154,49 +157,6 @@
             ]
           },
           {
-            "group": "DEX Infrasturcture(TBD)",
-            "expanded": false,
-            "pages": [
-              "dex/overview",
-              {
-                "group": "Orderbook Engine",
-                "expanded": false,
-                "pages": [
-                  "dex/orderbook/overview"
-                ]
-              },
-              {
-                "group": "AMM Protocol",
-                "expanded": false,
-                "pages": [
-                  "dex/amm/overview"
-                ]
-              },
-              {
-                "group": "Exchange API Endpints",
-                "expanded": false,
-                "pages": [
-                  "dex/exchange/place-order",
-                  "dex/exchange/cancel-order",
-                  "dex/exchange/modify-order",
-                  "dex/exchange/update-leverage",
-                  "dex/exchange/update-leverage",
-                  "dex/exchange/update-margin",
-                  "dex/exchange/deposit",
-                  "dex/exchange/withdraw"
-                ]
-              },
-              {
-                "group": "Exchange Data Endpints",
-                "expanded": false,
-                "pages": [
-                  "dex/exchange/data-overview"
-                ]
-              },
-              "dex/tutorials"
-            ]
-          },
-          {
             "group": "Pools",
             "expanded": false,
             "pages": [
@@ -277,7 +237,26 @@
         ]
       },
       {
-        "tab": "PayFi Services",
+        "tab": "DEX Infra",
+        "groups": [
+          {
+            "group": "Introduction",
+            "expanded": false,
+            "pages": [
+              "dex-infra/overview",
+              {
+                "group": "Orderbook Engine",
+                "expanded": false,
+                "pages": [
+                  "dex/orderbook/overview"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "PayFi Services[TBD]",
         "groups": [
           {
             "group": "Introduction",
@@ -356,9 +335,19 @@
             "expanded": false,
             "pages": [
               "passport/overview",
-              "passport/quickstart",
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "passport/quickstart"
+                ]
+              },
               "passport/concepts",
-              "passport/Unified Login",
+              {
+                "group": "Passport APIs",
+                "pages": [
+                  "passport/api"
+                ]
+              },
               "passport/use-cases"
             ]
           }
@@ -382,7 +371,7 @@
             ]
           },
           {
-            "item": "Smart Contracts Libraries",
+            "item": "Contracts Libraries",
             "icon": "code",
             "pages": [
               "contracts/overview"

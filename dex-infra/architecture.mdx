@@ -1,0 +1,20 @@
+---
+title: "Architecture"
+description: ""
+---
+# Overview
+Monoli provides the core infrastructure and developer tooling required to build decentralized exchanges on top of a shared execution and liquidity layer.
+
+Developers can leverage Monoli’s DEX infrastructure to create their own spot or perpetual DEXs, without implementing matching engines, risk systems, or settlement logic from scratch.
+
+## Key Features
+- Shared Orderbook-Based Execution:
+DEXs built on Monoli run on a low-latency, shared orderbook–based execution infrastructure that is accessible across multiple execution domains. All applications connect to the same underlying execution layer, enabling unified liquidity and consistent matching behavior while preserving application-level independence.
+
+- Unified Depth: A trader using a DEX built on Monoli can trade against liquidity provided by users from other domains, without leaving their current environment. Orders submitted from different environments are matched in the same global orderbook, allowing traders to access deeper liquidity without switching networks or interfaces.
+
+- Cross-Domain Settlement: Users do not need to manually bridge assets or manage cross-domain complexity. Monoli abstracts execution coordination, liquidity unification, and settlement routing at the infrastructure layer, so that cross-domain interactions are invisible to end users.
+
+From the user’s perspective, the experience remains simple and familiar: open your preferred DEX, connect your wallet, and start trading. All infrastructure complexity is handled by Monoli behind the scenes.
+
+# High-Level Architecture

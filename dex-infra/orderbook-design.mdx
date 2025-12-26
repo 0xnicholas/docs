@@ -1,0 +1,117 @@
+---
+title: "Orderbook Design"
+description: ""
+---
+Monoli DEX Infrastructure adopts an orderbook-based market design optimized for decentralized execution, shared liquidity, and white-label DEX deployments.
+
+The orderbook is a core infrastructure primitive in Monoli. It defines how orders are represented, prioritized, matched, and settled across all DEXs built on the Monoli execution layer.
+
+## Design Goals
+The Monoli orderbook is designed to satisfy the following objectives:
+- Deterministic execution suitable for decentralized settlement
+- High-performance matching comparable to professional trading systems
+- Liquidity sharing across multiple DEX frontends
+- Application-level independence with infrastructure-level consistency
+- Non-custodial safety and verifiable outcomes
+
+These goals ensure that DEXs built on Monoli can deliver institutional-grade trading behavior without centralized custody.
+
+## Market Structure
+Each market on Monoli is defined by:
+
+A base asset and quote asset
+
+A market type (spot or perpetual)
+
+A price tick size and quantity step size
+
+Market-specific risk and margin parameters
+
+Markets are configured at the infrastructure level, ensuring consistent behavior across all applications that access the same market.
+
+## Orderbook Model
+
+Monoli uses a price-time priority (FIFO) orderbook model, which is widely adopted in traditional exchanges and aligns well with deterministic decentralized execution.
+
+### Price Priority
+- Orders with better prices are matched first
+- Buy orders prioritize higher prices
+- Sell orders prioritize lower prices
+
+### Time Priority
+- Orders at the same price level are matched in the order they are accepted by the execution layer
+- Timestamps are assigned deterministically to preserve fairness across frontends
+
+This model ensures predictable and transparent matching behavior.
+
+## Supported Order Types
+
+Monoli’s orderbook supports common professional trading order types at the infrastructure level, including:
+- Limit Orders
+- Market Orders
+- Post-Only Orders
+- Reduce-Only Orders (for derivatives)
+
+Additional order constraints (e.g., time-in-force) can be layered by applications without altering the core matching logic.
+
+## Matching and Execution
+
+Order matching is performed by Monoli’s shared execution engine, not by individual DEX frontends.
+
+The matching process follows a deterministic sequence:
+
+1. Orders are validated against market rules and risk constraints
+2. Orders enter the global orderbook for the target market
+3. Matching occurs based on price-time priority
+4. Trades are generated with explicit execution outcomes
+5. Settlement instructions are produced for decentralized clearing
+
+By centralizing matching at the infrastructure level, Monoli eliminates fragmented liquidity and inconsistent execution across applications.
+
+## Liquidity Sharing Across DEXs
+
+A key feature of Monoli’s orderbook design is liquidity unification.
+- Multiple DEX frontends can list the same market
+- All orders for that market contribute to the same underlying orderbook
+- Liquidity is shared transparently across applications
+
+This allows smaller or specialized DEXs to benefit from deeper liquidity while maintaining independent UX and fee models.
+
+## Non-Custodial Settlement Model
+
+While order matching occurs within the Monoli execution layer, assets are never custodied by Monoli.
+
+- Users authorize trades via cryptographic signatures
+- Asset movements are settled through decentralized settlement mechanisms
+- Trade results are verifiable and auditable
+
+The orderbook defines execution intent and priority, while settlement ensures trust-minimized asset transfer.
+
+## Risk and Margin Integration
+
+For perpetual and leveraged markets, the orderbook integrates tightly with Monoli’s risk and margin modules:
+
+- Orders are checked against available margin before acceptance
+- Reduce-only and liquidation-aware orders are enforced at the matching level
+- Forced liquidations interact directly with the orderbook to close positions efficiently
+
+This ensures market integrity even under high volatility.
+
+## Determinism and Fairness
+
+Monoli’s orderbook is designed to minimize ambiguity and execution disputes:
+- Deterministic ordering rules
+- Explicit priority definitions
+- No hidden reordering by frontends
+
+All participants observe the same execution logic, regardless of which application submits the order.
+
+## Extensibility
+
+While the core orderbook logic remains stable, Monoli supports extensibility through:
+
+- Market-specific parameters
+- Application-level order constraints
+- Strategy engines and automated agents submitting orders programmatically
+
+This enables innovation at the application layer without fragmenting core liquidity or execution rules.

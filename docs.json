@@ -298,6 +298,58 @@
           ]
         },
         {
+          "tab": "Monoli Passport",
+          "groups": [
+            {
+              "group": "Introduction",
+              "expanded": false,
+              "pages": [
+                "passport/overview",
+                {
+                  "group": "Getting Started",
+                  "pages": [
+                    "passport/quickstart"
+                  ]
+                },
+                "passport/concepts",
+                {
+                  "group": "Passport APIs",
+                  "pages": [
+                    "passport/api"
+                  ]
+                },
+                "passport/use-cases"
+              ]
+            }
+          ]
+        },
+        {
+          "tab": "Monoli Protocol",
+          "groups": [
+            {
+              "group": "Introduction",
+              "expanded": false,
+              "pages": [
+                "monoli-protocol/overview",
+                {
+                  "group": "Getting Started",
+                  "pages": [
+                    "monoli-protocol/quickstart"
+                  ]
+                },
+                "monoli-protocol/concepts",
+                {
+                  "group": "Protocol APIs",
+                  "pages": [
+                    "monoli-protocol/api"
+                  ]
+                },
+                "monoli-protocol/use-cases"
+              ]
+            }
+          ]
+        },
+        {
           "tab": "PayFi Services[TBD]",
           "groups": [
             {
@@ -323,7 +375,7 @@
           ]
         },
         {
-          "tab": "Bots",
+          "tab": "Agent & Bots[TBD]",
           "groups": [
             {
               "group": "Introduction",
@@ -365,32 +417,6 @@
                     "a"
                   ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "tab": "Crypto Passport",
-          "groups": [
-            {
-              "group": "Introduction",
-              "expanded": false,
-              "pages": [
-                "passport/overview",
-                {
-                  "group": "Getting Started",
-                  "pages": [
-                    "passport/quickstart"
-                  ]
-                },
-                "passport/concepts",
-                {
-                  "group": "Passport APIs",
-                  "pages": [
-                    "passport/api"
-                  ]
-                },
-                "passport/use-cases"
               ]
             }
           ]
